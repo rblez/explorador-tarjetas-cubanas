@@ -42,11 +42,9 @@ h1{font-family:'Inter Tight','Inter',sans-serif;font-weight:600;font-size:32px;l
 .tcenter .sub2{font-size:9px;letter-spacing:.3em;color:#e8c766;font-weight:600;margin-top:4px}
 .deco{position:absolute;pointer-events:none;display:none;z-index:1}
 /* BANDEC */
-.tcard[data-card="bandec"]{background:linear-gradient(150deg,#c01430 0%,#8f0f1c 58%,#700a13 100%);padding-left:52px}
+.tcard[data-card="bandec"]{background:linear-gradient(150deg,#c01430 0%,#8f0f1c 58%,#700a13 100%)}
 .tcard[data-card="bandec"] .brand-bandec{display:flex}
 .brand-bandec .wm{font-family:'BandecFont',sans-serif;font-weight:700;font-size:27px;letter-spacing:.01em;-webkit-text-stroke:.06em currentColor}
-.tcard[data-card="bandec"] .deco-edge{display:block;left:0;top:0;bottom:0;width:34px;border-right:1px solid rgba(255,255,255,.18)}
-.deco-edge span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(180deg);writing-mode:vertical-rl;font-size:8px;letter-spacing:.3em;font-weight:600;opacity:.75;white-space:nowrap}
 /* BPA */
 .tcard[data-card="bpa"]{background:linear-gradient(160deg,#ffffff,#f2f4ef);color:#14231f;box-shadow:0 24px 48px -16px rgba(0,60,50,.28),inset 0 0 0 1px rgba(0,0,0,.05)}
 .tcard[data-card="bpa"] .brand-bpa{display:flex}
@@ -155,7 +153,7 @@ html[data-theme="light"] .copy a{color:#515154}
 .poweredby img{height:16px;width:auto;filter:invert(1)}
 html[data-theme="light"] .poweredby{color:#6e6e73}
 html[data-theme="light"] .poweredby img{filter:none}
-@media (max-width:420px){.wrap{padding:32px 16px 52px}h1{font-size:29px}.tcard{padding:19px 20px 16px;min-height:204px}.tcard[data-card="bandec"]{padding-left:47px}.tcard[data-card="metropolitano"]{padding-left:94px}.tcard[data-card="clasica"] .tnumwrap{margin:auto -20px 10px;padding:8px 20px}.panel{padding:21px 16px}.brand .wm{font-size:20px}}
+@media (max-width:420px){.wrap{padding:32px 16px 52px}h1{font-size:29px}.tcard{padding:19px 20px 16px;min-height:204px}.tcard[data-card="metropolitano"]{padding-left:94px}.tcard[data-card="clasica"] .tnumwrap{margin:auto -20px 10px;padding:8px 20px}.panel{padding:21px 16px}.brand .wm{font-size:20px}}
 .powered{margin:32px 0 6px;font-size:13px;color:var(--mut)}
 .warn{margin-top:16px;display:flex;gap:12px;background:#171106;border:1px solid rgba(245,197,24,.38);border-radius:14px;padding:14px 15px}
 .warn[hidden]{display:none}
@@ -188,7 +186,6 @@ html[data-theme="light"] .poweredby img{filter:none}
 <h1>Explorador de tarjetas cubanas<span class="badge" id="ver">cargando…</span></h1>
 <p class="sub">Pega un número y el catálogo lo identifica al instante: red, producto, moneda y banco. La tarjeta se dibuja como la original de cada banco, sin datos personales.</p>
 <div class="twrap"><div class="tcard" id="tcard" data-card="default">
-  <div class="deco deco-edge"><span>BANCO DE CRÉDITO Y COMERCIO</span></div>
   <div class="deco deco-ribbons"><svg viewBox="0 0 120 200" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true"><polygon points="0,0 46,0 20,200 0,200" fill="#0e4d8f"/><polygon points="30,0 62,0 96,200 58,200" fill="#12a5b8" opacity=".85"/><polygon points="52,0 70,0 128,200 96,200" fill="#0a3566"/></svg></div>
   <div class="deco deco-swoosh"><svg viewBox="0 0 300 120" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true"><path d="M300 8 C 190 26, 120 44, 0 108" stroke="#0b5563" stroke-width="7" fill="none" opacity=".8"/><path d="M300 30 C 200 48, 130 66, 8 122" stroke="#7fb3b0" stroke-width="5" fill="none" opacity=".7"/><path d="M300 52 C 215 68, 150 84, 30 128" stroke="#0b5563" stroke-width="3.5" fill="none" opacity=".45"/></svg></div>
   <div class="deco deco-palm"><svg viewBox="0 0 100 120" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><g fill="#14663f"><path d="M52 118 C 50 84, 48 58, 40 34 L 47 32 C 55 58, 57 86, 59 118 Z"/><path d="M44 32 C 30 18, 14 14, 2 20 C 14 24, 26 30, 40 38 Z"/><path d="M45 30 C 38 12, 26 2, 12 0 C 22 10, 32 20, 41 34 Z"/><path d="M47 29 C 50 10, 60 0, 74 0 C 64 10, 56 20, 50 33 Z"/><path d="M48 31 C 62 18, 78 14, 92 20 C 79 24, 64 31, 51 38 Z"/><path d="M47 34 C 64 30, 82 34, 94 46 C 80 42, 63 40, 50 40 Z"/></g></svg></div>
@@ -229,7 +226,7 @@ html[data-theme="light"] .poweredby img{filter:none}
 <p>Los diseños reproducen las tarjetas originales de cada banco con fines de identificación, sin nombre del titular, fecha de vencimiento ni códigos de seguridad. Los logos e isotipos pertenecen a cada banco.</p>
 </div>
 </div>
-<p class="poweredby">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener" aria-label="Ray - rblez.com"><img class="iso-theme" src="assets/isotipo-ray-claro.svg" alt="Ray"></a><span aria-hidden="true">·</span><span>v1.3.4</span><span aria-hidden="true">·</span><a class="pbrepo" href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a></p>
+<p class="poweredby">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener" aria-label="Ray - rblez.com"><img class="iso-theme" src="assets/isotipo-ray-claro.svg" alt="Ray"></a><span aria-hidden="true">·</span><span>v1.3.5</span><span aria-hidden="true">·</span><a class="pbrepo" href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a></p>
 </footer>
 </div>
 <script>
