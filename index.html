@@ -100,6 +100,19 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 .dot{width:9px;height:9px;border-radius:50%}
 @media (max-width:420px){.wrap{padding:32px 16px 52px}h1{font-size:29px}.tcard{padding:19px 20px 16px;min-height:204px}.tcard[data-card="bandec"]{padding-left:47px}.tcard[data-card="metropolitano"]{padding-left:94px}.tcard[data-card="clasica"] .tnumwrap{margin:auto -20px 10px;padding:8px 20px}.panel{padding:21px 16px}.brand .wm{font-size:20px}}
 .powered{margin:32px 0 6px;font-size:13px;color:var(--mut)}
+.sitefoot{margin-top:38px;border-top:1px solid var(--line);padding-top:24px}
+.sitefoot .powered{margin:0 0 4px;font-size:13.5px}
+.sitefoot .powered img{width:34px;height:34px;border-radius:9px;vertical-align:-11px;margin-left:3px}
+.dcol{margin-top:18px;border:1px solid #232326;border-radius:14px;background:#101012;overflow:hidden}
+.dcol-head{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;color:var(--ink);font:inherit;font-size:14px;font-weight:600;padding:13px 15px;cursor:pointer}
+.dcol-head .chev{color:var(--mut);transition:transform .3s cubic-bezier(.28,.11,.32,1)}
+.dcol-head[aria-expanded="true"] .chev{transform:rotate(90deg)}
+.dcol-body{padding:2px 15px 14px;color:#a1a1a6;font-size:13px;line-height:1.65}
+.dcol-body p{margin:8px 0}
+.dcol-body a{color:var(--ink);text-decoration:none}
+.copy{margin:18px 0 0;color:#6e6e73;font-size:12.5px}
+.copy a{color:#a1a1a6;text-decoration:none;font-weight:600}
+
 .powered img{width:20px;height:20px;border-radius:6px;vertical-align:-5px;margin-left:2px}
 .powered a{color:var(--ink);font-weight:600;text-decoration:none}
 .foot{margin-top:6px;color:var(--mut);font-size:12.5px;line-height:1.7}
@@ -140,8 +153,18 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 <div class="notes" id="notes" style="display:none"></div>
 <div class="ex" id="ex"></div>
 </div>
-<div class="powered">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener"><img src="assets/isotipo-ray.png" alt="Ray"></a> · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto</a></div>
-<p class="foot">Datos: <b>cuban_cards_prefixes</b> de QvaPay (MIT), cargados en vivo desde jsDelivr. Los diseños reproducen las tarjetas originales de cada banco con fines de identificación, sin nombre del titular, fecha de vencimiento ni códigos de seguridad.</p>
+<footer class="sitefoot">
+<div class="powered">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener"><img src="assets/isotipo-ray.png" alt="Ray"></a></div>
+<div class="dcol">
+<button class="dcol-head" id="dcolhead" type="button" aria-expanded="false"><span>Datos</span><svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="dcol-body" id="dcolbody" hidden>
+<p>Datos: <a href="https://github.com/qvapay/cuban_cards_prefixes" target="_blank" rel="noopener"><b>cuban_cards_prefixes</b></a> de QvaPay (MIT), cargados en vivo desde jsDelivr. <span id="dver"></span></p>
+<p>La identificación ocurre entera en tu navegador: el número que escribes no se envía a ningún servidor.</p>
+<p>Los diseños reproducen las tarjetas originales de cada banco con fines de identificación, sin nombre del titular, fecha de vencimiento ni códigos de seguridad. Los logos e isotipos pertenecen a cada banco.</p>
+</div>
+</div>
+<p class="copy">© Ray · v1.0.0 · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a></p>
+</footer>
 </div>
 <script>
 const CDN='https://cdn.jsdelivr.net/gh/qvapay/cuban_cards_prefixes@main/';
@@ -223,4 +246,9 @@ async function init(){
 }
 init();
 </script><script>fetch('https://api.github.com/repos/rblez/explorador-tarjetas-cubanas').then(function(r){return r.json()}).then(function(d){if(d&&typeof d.stargazers_count==='number')document.getElementById('ghstars').textContent=d.stargazers_count}).catch(function(){})</script>
+<script>
+var dh=document.getElementById('dcolhead'),db=document.getElementById('dcolbody');
+dh.addEventListener('click',function(){var open=db.hidden;db.hidden=!open;dh.setAttribute('aria-expanded',String(open))});
+(function(){var t=0,iv=setInterval(function(){var v=document.getElementById('ver'),d=document.getElementById('dver');if(v&&d&&v.textContent.indexOf('v')===0){d.textContent='Catálogo '+v.textContent;clearInterval(iv)}if(++t>24)clearInterval(iv)},500)})();
+</script>
 </body></html>
