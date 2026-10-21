@@ -74,7 +74,9 @@ h1{font-family:'Inter Tight','Inter',sans-serif;font-weight:600;font-size:32px;l
 /* BICSA */
 .tcard[data-card="bicsa"] .brand-bicsa{display:flex}
 .tcard[data-card="tropical"]{background:#8fd0ea url("assets/tropical-fondo.jpg") center/cover no-repeat;color:#0b2b3a}
-.tcard[data-card="tropical"] .brand-bandec{display:flex}
+.tcard[data-card="tropical"] .brand-tropical{display:flex}
+.tcard[data-card="tropical"] .brand-tropical .wm{font-family:'BandecFont',sans-serif;font-weight:700;font-size:27px;letter-spacing:.01em;-webkit-text-stroke:.06em currentColor;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.tcard[data-card="tropical"] .brand-tropical .micro{color:#fff;opacity:.92}
 .tcard[data-card="tropical"] .deco-palm{display:none;right:-6px;bottom:0;width:150px;height:170px;opacity:.92}
 .tcard[data-card="tropical"] .tnum{color:#101418;text-shadow:none;text-align:left}
 .tcard[data-card="tropical"] .tmeta .pill{background:rgba(255,255,255,.55);color:#0b2b3a}
@@ -99,10 +101,66 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 .tile{width:31px;height:31px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
 .row b{text-align:right;font-weight:600}
 .notes{margin-top:14px;font-size:13.5px;color:#a1a1a6;line-height:1.55;border-left:3px solid var(--a1);padding:2px 0 2px 13px;transition:border-color .5s}
-.ex{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .ex button{background:#17171a;color:#f5f5f7;border:1px solid #2a2a2e;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;display:flex;gap:8px;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:all .25s var(--ease)}
 .ex button:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.09)}
 .dot{width:9px;height:9px;border-radius:50%}
+.extitle{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);font-weight:700;margin-top:22px}
+.docs{margin-top:26px;background:#0c0c0e;border:1px solid #1d1d20;border-radius:24px;padding:25px 22px;box-shadow:0 10px 34px rgba(0,0,0,.5)}
+.docs h2{font-family:'Inter Tight',sans-serif;font-size:22px;letter-spacing:-.02em;margin:0 0 6px}
+.docs-sub{color:var(--mut);font-size:13.5px;line-height:1.55;margin:0 0 18px}
+.docs h3{font-size:15px;margin:26px 0 10px;letter-spacing:-.01em}
+.docs p{font-size:13.5px;color:#c7c7cc;line-height:1.6;margin:0}
+.docs-tools{display:flex;flex-direction:column;gap:9px}
+.docs-tools input{margin-top:0;font-family:inherit;letter-spacing:0;font-size:15px}
+.docs-filters{display:flex;gap:9px}
+.docs-filters select{flex:1;min-width:0;background:#17171a;color:var(--ink);border:1.5px solid #2a2a2e;border-radius:11px;padding:10px;font-size:13.5px;font-family:inherit;outline:none}
+.docanat{display:flex;gap:6px;margin:12px 0 4px}
+.docseg{background:#17171a;border:1px solid #232328;border-radius:11px;padding:8px 4px;text-align:center;min-width:0}
+.docseg b{display:block;font-family:'Geist Mono',monospace;font-size:12px;white-space:nowrap}
+.docseg span{display:block;font-size:8.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-top:3px;white-space:nowrap;overflow:hidden}
+.docnote{font-size:12.5px;color:var(--mut);line-height:1.55;margin-top:9px}
+.bankrow{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.bankrow:last-child{border-bottom:0}
+.bankrow .bn{font-weight:600}
+.bankrow .bnote{font-size:12px;color:var(--mut);margin-top:2px;line-height:1.5}
+.bankrow .bc{font-family:'Geist Mono',monospace;color:var(--mut);text-align:right;font-size:12.5px;white-space:nowrap;padding-top:2px}
+.docgroup{margin-top:20px}
+.docgroup-h{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+.docentry{background:#17171a;border:1px solid #232328;border-radius:16px;padding:15px 16px;margin-bottom:10px}
+.docentry .dh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.docentry .dp{font-family:'Geist Mono',monospace;font-weight:700;font-size:17px;letter-spacing:.02em}
+.docentry .dprod{font-weight:600;font-size:14.5px}
+.docentry .dvar{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#2c2c30;color:#ffd60a;border-radius:99px;padding:3px 8px}
+.docentry .dcur{margin-left:auto;font-size:11.5px;font-weight:600;border-radius:99px;padding:4px 10px;background:rgba(255,255,255,.1);white-space:nowrap}
+.docentry .dmeta{font-size:13px;color:#c7c7cc;line-height:1.55;margin-top:7px}
+.docentry .dmeta b{color:var(--ink);font-weight:600}
+.docentry .dnotes{font-size:12.5px;color:var(--mut);line-height:1.55;margin-top:8px;border-left:3px solid #3a3a40;padding:2px 0 2px 11px}
+.docentry .dsrc{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px;align-items:center}
+.srcchip{display:inline-flex;align-items:center;font-size:11px;font-weight:700;background:#232327;border:1px solid #2e2e33;color:#d6d6da;border-radius:7px;padding:3px 7px;text-decoration:none}
+a.srcchip:hover{border-color:#4a4a52}
+.docentry .dtry{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.trybtn{background:transparent;color:var(--ink);border:1px solid #3a3a42;border-radius:99px;padding:7px 12px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;display:inline-flex;gap:7px;align-items:center;transition:all .25s var(--ease)}
+.trybtn:hover{transform:translateY(-1px);border-color:#55555f}
+.trybtn .dot{width:8px;height:8px;flex-shrink:0}
+.pats{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.pats code{font-family:'Geist Mono',monospace;font-size:12px;background:#17171a;border:1px solid #232328;border-radius:8px;padding:5px 9px;color:#d6d6da}
+.srcrow{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px;align-items:baseline}
+.srcrow:last-child{border-bottom:0}
+.srcrow a{color:var(--ink)}
+.docempty{color:var(--mut);font-size:13.5px;padding:16px 0 4px}
+html[data-theme="light"] .docs{background:#fff;border-color:#e3e3e7;box-shadow:0 10px 30px rgba(0,0,0,.07)}
+html[data-theme="light"] .docs p{color:#3a3a3c}
+html[data-theme="light"] .docseg{background:#f5f5f7;border-color:#e3e3e7}
+html[data-theme="light"] .docs-filters select{background:#f5f5f7;border-color:#dcdce1}
+html[data-theme="light"] .docentry{background:#f5f5f7;border-color:#e3e3e7}
+html[data-theme="light"] .docentry .dvar{background:#ececf1;color:#8a6d00}
+html[data-theme="light"] .docentry .dcur{background:rgba(0,0,0,.06)}
+html[data-theme="light"] .docentry .dmeta{color:#3a3a3c}
+html[data-theme="light"] .docentry .dnotes{border-color:#d8d8e0}
+html[data-theme="light"] .srcchip{background:#fff;border-color:#dcdce1;color:#1d1d1f}
+html[data-theme="light"] .trybtn{border-color:#c7c7cc}
+html[data-theme="light"] .pats code{background:#f5f5f7;border-color:#e3e3e7;color:#1d1d1f}
 
 .themebtn{width:37px;height:37px;border-radius:999px;background:#1c1c1e;border:1px solid #2c2c2e;color:#ffd60a;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .25s}
 .themebtn:hover{background:#26262a}
@@ -131,7 +189,11 @@ html[data-theme="light"] .dcol{background:#fff;border-color:#e3e3e7}
 html[data-theme="light"] .dcol-body{color:#6e6e73}
 html[data-theme="light"] .copy{color:#86868b}
 html[data-theme="light"] .copy a{color:#515154}
-html[data-theme="light"] .sitefoot .powered img,html[data-theme="light"] .copy img{content:url('assets/isotipo-ray-claro.svg');border-radius:0}
+.poweredby{margin:14px 0 0;display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:#86868b}
+.poweredby a{display:flex}
+.poweredby img{height:16px;width:auto;filter:invert(1)}
+html[data-theme="light"] .poweredby{color:#6e6e73}
+html[data-theme="light"] .poweredby img{filter:none}
 @media (max-width:420px){.wrap{padding:32px 16px 52px}h1{font-size:29px}.tcard{padding:19px 20px 16px;min-height:204px}.tcard[data-card="bandec"]{padding-left:47px}.tcard[data-card="metropolitano"]{padding-left:94px}.tcard[data-card="clasica"] .tnumwrap{margin:auto -20px 10px;padding:8px 20px}.panel{padding:21px 16px}.brand .wm{font-size:20px}}
 .powered{margin:32px 0 6px;font-size:13px;color:var(--mut)}
 .warn{margin-top:16px;display:flex;gap:12px;background:#171106;border:1px solid rgba(245,197,24,.38);border-radius:14px;padding:14px 15px}
@@ -194,8 +256,21 @@ html[data-theme="light"] .sitefoot .powered img,html[data-theme="light"] .copy i
 <div class="rows" id="rows"><div class="state" id="state">Cargando el catálogo en vivo…</div></div>
 <div class="notes" id="notes" style="display:none"></div>
 <div class="warn" id="warn" hidden><div class="warn-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 4L21.5 20H2.5L12 4Z" stroke="#f5c518" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v4.4" stroke="#f5c518" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.15" fill="#f5c518"/></svg></div><div class="warn-tx"><b id="warntitle"></b><p id="warntext"></p><a class="warnbtn" id="warnlink" href="#" target="_blank" rel="noopener">Reportarla en QvaPay</a><span class="warnpriv">Solo se comparten los 8 primeros dígitos de tu tarjeta.</span></div></div>
+<div class="extitle">Ejemplos por banco</div>
 <div class="ex" id="ex"></div>
 </div>
+<section class="docs" id="docs">
+<h2>Documentación del catálogo</h2>
+<p class="docs-sub" id="docsub">Esta documentación se genera en tu navegador, en vivo, desde el mismo catálogo abierto que usa el explorador: <b>prefixes.json</b> y <b>validators.json</b> de QvaPay. Nada de esto está guardado en la página.</p>
+<div class="docs-tools">
+<input id="docq" type="search" placeholder="Buscar por prefijo, producto, banco, alias o nota…" autocomplete="off">
+<div class="docs-filters">
+<select id="doccur" aria-label="Filtrar por moneda"><option value="">Moneda: todas</option><option value="CUP">CUP</option><option value="MLC">USD con respaldo en MLC</option><option value="USD">USD</option></select>
+<select id="docbank" aria-label="Filtrar por banco"><option value="">Banco: todos</option></select>
+</div>
+</div>
+<div id="docbody"><div class="state">Cargando documentación…</div></div>
+</section>
 <footer class="sitefoot">
 <div class="dcol">
 <button class="dcol-head" id="dcolhead" type="button" aria-expanded="false"><span>Datos</span><svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -205,7 +280,8 @@ html[data-theme="light"] .sitefoot .powered img,html[data-theme="light"] .copy i
 <p>Los diseños reproducen las tarjetas originales de cada banco con fines de identificación, sin nombre del titular, fecha de vencimiento ni códigos de seguridad. Los logos e isotipos pertenecen a cada banco.</p>
 </div>
 </div>
-<p class="copy">© Ray · v1.3.1 · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a> · Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener"><img src="assets/isotipo-ray.png" alt="Ray"></a></p>
+<p class="copy">© Ray · v1.3.2 · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a></p>
+<p class="poweredby">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener" aria-label="Ray - rblez.com"><img class="iso-theme" src="assets/isotipo-ray-claro.svg" alt="Ray"></a></p>
 </footer>
 </div>
 <script>
@@ -221,6 +297,7 @@ const COLORS={'Banco de Crédito y Comercio':['#c01430','#8f0f1c'],'Banco Popula
 const PCOLORS={'Clásica':['#c99a2e','#8a6414']};
 const DEF=['#0071e3','#42a5f5'];
 const THEMES={'Banco de Crédito y Comercio':'bandec','Banco Popular de Ahorro':'bpa','Banco Metropolitano':'metropolitano','Financiera CIMEX S.A.':'clasica','Banco Internacional de Comercio S.A.':'bicsa'};
+const SHORT={BANDEC:'BANDEC',BPA:'BPA',METROPOLITANO:'Banco Metropolitano',FINCIMEX:'FINCIMEX',BICSA:'BICSA'};
 function luhn(n){let s=0,a=false;for(let i=n.length-1;i>=0;i--){let d=+n[i];if(a){d*=2;if(d>9)d-=9}s+=d;a=!a}return n.length>0&&s%10===0}
 function fmt(n){return n.replace(/(\d{4})(?=\d)/g,'$1 ')}
 function analyze(raw){
@@ -291,18 +368,85 @@ function render(){
   }else wn.hidden=true;
 }
 $('#num').addEventListener('input',e=>{e.target.value=fmt(e.target.value.replace(/\D/g,'').slice(0,16));render()});
-function exampleFor(e){let base=(e.prefix+((e.issuers&&iss[e.issuers[0]]&&iss[e.issuers[0]].code)||'0000')).padEnd(15,'0').slice(0,15);for(let d=0;d<=9;d++){if(luhn(base+d))return base+d}return base+'0'}
+function exampleFor(e,iid){const code=(iid&&iss[iid]&&iss[iid].code)||(e.issuers&&iss[e.issuers[0]]&&iss[e.issuers[0]].code)||'0000';let base=(e.prefix+code).padEnd(15,'0').slice(0,15);for(let d=0;d<=9;d++){if(luhn(base+d))return base+d}return base+'0'}
+function probar(e,iid){$('#num').value=fmt(exampleFor(e,iid));render();window.scrollTo({top:0,behavior:'smooth'})}
+const FIELDS={network:'Red',product:'Producto',issuer:'Banco',account:'Cuenta',check_digit:'Dígito de control'};
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function srcChips(ids){return (ids||[]).map(id=>{const s=(PF.sources||[]).find(x=>x.id===id);if(!s)return'';return s.url?`<a class="srcchip" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}">${esc(s.short)}</a>`:`<span class="srcchip" title="${esc(s.title)}">${esc(s.short)}</span>`}).join('')}
+function docEntries(){const out=[];PF.prefixes.forEach(p=>{out.push({e:p,variantOf:null});(p.variants||[]).forEach(v=>out.push({e:Object.assign({},v,{currency:p.currency,mlc_backed:p.mlc_backed,network:p.network,issuers:(v.issuers||p.issuers||[])}),variantOf:p.prefix}))});return out}
+function entryHTML(it){
+  const e=it.e;const banks=(e.issuers||[]).map(id=>iss[id]).filter(Boolean);
+  const cur=e.currency+(e.mlc_backed?' · respaldo MLC':'');
+  const gkey=e.currency==='CUP'?'CUP':(e.mlc_backed?'MLC':'USD');
+  const alias=(e.aliases&&e.aliases.length)?`<div class="dmeta">También conocida como: <b>${e.aliases.map(esc).join(', ')}</b></div>`:'';
+  const bankLine=banks.length?`<div class="dmeta">Bancos confirmados: <b>${banks.map(b=>esc(b.name)).join(' · ')}</b></div>`:`<div class="dmeta">Sin banco confirmado todavía.</div>`;
+  const notes=e.notes?`<div class="dnotes">${esc(e.notes)}</div>`:'';
+  const srcs=(e.sources&&e.sources.length)?`<div class="dsrc"><span style="font-size:11px;color:var(--mut);font-weight:700;letter-spacing:.05em">FUENTES</span>${srcChips(e.sources)}</div>`:'';
+  const tries=banks.length?`<div class="dtry">${banks.map(b=>`<button type="button" class="trybtn" data-pre="${esc(e.prefix)}" data-iid="${esc(b.id)}"><span class="dot" style="background:${(COLORS[b.name]||DEF)[0]}"></span>Probar ${esc(SHORT[b.id]||b.id)}</button>`).join('')}</div>`:'';
+  const text=[e.prefix,e.product||'',(e.aliases||[]).join(' '),banks.map(b=>b.name+' '+b.id).join(' '),e.notes||''].join(' ').toLowerCase();
+  return `<article class="docentry" data-text="${esc(text)}" data-cur="${gkey}" data-banks="${(e.issuers||[]).join(' ')}"><div class="dh"><span class="dp">${esc(e.prefix)}</span><span class="dprod">${esc(e.product||'Sin identificar')}</span>${it.variantOf?`<span class="dvar">Variante de ${esc(it.variantOf)}</span>`:''}<span class="dcur">${esc(cur)}</span></div>${alias}${bankLine}${notes}${srcs}${tries}</article>`;
+}
+function buildDocs(){
+  if(!PF||!VA)return;
+  const sel=$('#docbank');(PF.issuers||[]).forEach(i=>{const o=document.createElement('option');o.value=i.id;o.textContent=i.name;sel.appendChild(o)});
+  const entries=docEntries();const nVar=entries.filter(x=>x.variantOf).length;
+  $('#docsub').innerHTML=`Generada en vivo desde el catálogo abierto <b>cuban_cards_prefixes</b> de QvaPay (v${esc(PF.version)} · actualizado ${esc(PF.updated_at||'')}): <b>${PF.prefixes.length} prefijos${nVar?` + ${nVar} variante`:''}</b>. Es el mismo dato que carga el explorador; la página no guarda ninguna copia.`;
+  let h='';
+  const segs=(PF.structure&&PF.structure.RED)||[];
+  h+=`<h3>Cómo se lee el número</h3><p>Las tarjetas de la red RED tienen <b>${PF.card_length} dígitos</b> y cada tramo dice algo distinto:</p>`;
+  h+=`<div class="docanat">${segs.map(s=>`<div class="docseg" style="flex-grow:${s.to-s.from+1}"><b>${s.from===s.to?s.from:s.from+'–'+s.to}</b><span>${esc(FIELDS[s.field]||s.field)}</span></div>`).join('')}</div>`;
+  const issSeg=segs.find(s=>s.field==='issuer');if(issSeg&&issSeg.notes)h+=`<div class="docnote">${esc(issSeg.notes)}</div>`;
+  h+=`<div class="docnote">El último dígito es el de control: se calcula con el algoritmo de <b>Luhn</b> (ISO/IEC 7812) y permite detectar errores al teclear el número. La tarjeta Clásica de FINCIMEX no sigue la estructura RED: sus dígitos 5–8 no son un código de banco.</div>`;
+  h+=`<h3>Bancos y emisores</h3>`;
+  h+=(PF.issuers||[]).map(i=>`<div class="bankrow"><div><div class="bn">${esc(i.name)}</div>${i.notes?`<div class="bnote">${esc(i.notes)}</div>`:''}</div><div class="bc">${i.code?('dígitos 5–8 · '+esc(i.code)):'sin código'}</div></div>`).join('');
+  h+=`<h3>Prefijos del catálogo</h3>`;
+  [['CUP','Pesos cubanos (CUP)'],['MLC','USD con respaldo en MLC'],['USD','USD']].forEach(([k,label])=>{
+    const list=entries.filter(it=>(it.e.currency==='CUP'?'CUP':(it.e.mlc_backed?'MLC':'USD'))===k);
+    if(!list.length)return;
+    h+=`<div class="docgroup" data-group="${k}" data-label="${label}"><div class="docgroup-h">${label} · ${list.length}</div>${list.map(entryHTML).join('')}</div>`;
+  });
+  h+=`<div class="docempty" id="docempty" hidden>Sin resultados con ese filtro. Prueba con otro texto o limpia los filtros.</div>`;
+  const pats=Object.keys(VA.patterns||{}).map(k=>'patterns.'+k).concat(Object.keys(VA.issuers||{}).map(k=>'issuers.'+k));
+  h+=`<h3>Validadores (validators.json)</h3><p>Expresiones regulares generadas desde el mismo catálogo, listas para usar en cualquier lenguaje. También dicen qué moneda y qué banco acepta cada número:</p><div class="pats">${pats.map(p=>`<code>${esc(p)}</code>`).join('')}</div>`;
+  h+=`<h3>Fuentes</h3>`;
+  h+=(PF.sources||[]).map(s=>`<div class="srcrow"><span class="srcchip">${esc(s.short)}</span><div>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`:esc(s.title)}${s.notes?`<div class="docnote" style="margin-top:2px">${esc(s.notes)}</div>`:''}</div></div>`).join('');
+  $('#docbody').innerHTML=h;
+  $('#docbody').addEventListener('click',ev=>{
+    const b=ev.target.closest('.trybtn');if(!b)return;
+    const it=docEntries().find(x=>x.e.prefix===b.dataset.pre);
+    if(it)probar(it.e,b.dataset.iid);
+  });
+  $('#docq').addEventListener('input',docFilter);
+  $('#doccur').addEventListener('change',docFilter);
+  $('#docbank').addEventListener('change',docFilter);
+}
+function docFilter(){
+  const q=($('#docq').value||'').toLowerCase().trim();
+  const cur=$('#doccur').value;const bank=$('#docbank').value;
+  let visible=0;
+  document.querySelectorAll('.docentry').forEach(el=>{
+    const show=(!q||el.dataset.text.includes(q))&&(!cur||el.dataset.cur===cur)&&(!bank||(' '+el.dataset.banks+' ').includes(' '+bank+' '));
+    el.style.display=show?'':'none';if(show)visible++;
+  });
+  document.querySelectorAll('.docgroup').forEach(g=>{
+    const vis=[...g.querySelectorAll('.docentry')].filter(e=>e.style.display!=='none').length;
+    g.style.display=vis?'':'none';
+    g.querySelector('.docgroup-h').textContent=g.dataset.label+' · '+vis;
+  });
+  const em=$('#docempty');if(em)em.hidden=visible>0;
+}
 async function init(){
   try{
     [PF,VA]=await Promise.all([loadJSON('prefixes.json'),loadJSON('validators.json')]);
     (PF.issuers||[]).forEach(i=>iss[i.id]=i);
     $('#ver').textContent='v'+PF.version+' · '+PF.prefixes.length+' prefijos';
     $('#num').disabled=false;
-    const seen=new Set();
-    PF.prefixes.filter(p=>p.product&&!seen.has(p.product)&&seen.add(p.product)).slice(0,6).forEach(p=>{
-      const b=document.createElement('button');const c=(p.issuers&&iss[p.issuers[0]]&&COLORS[iss[p.issuers[0]].name])||PCOLORS[p.product]||DEF;
-      b.innerHTML=`<span class="dot" style="background:${c[0]}"></span>${p.product} · ${p.currency}`;
-      b.onclick=()=>{$('#num').value=fmt(exampleFor(p));render()};$('#ex').appendChild(b);});
+    [['9205','BANDEC'],['9238','BPA'],['9234','METROPOLITANO'],['9760','FINCIMEX'],['9240','BANDEC','Tropical']].forEach(([pre,iid,tag])=>{
+      const p=PF.prefixes.find(x=>x.prefix===pre);if(!p||!iss[iid])return;
+      const b=document.createElement('button');const c=COLORS[iss[iid].name]||DEF;
+      b.innerHTML=`<span class="dot" style="background:${c[0]}"></span>${SHORT[iid]||iid} · ${tag||p.product} · ${p.currency}`;
+      b.onclick=()=>probar(p,iid);$('#ex').appendChild(b);});
+    buildDocs();
     render();
   }catch(err){
     $('#state').textContent='No se pudo cargar el catálogo desde el CDN. Revisa tu conexión y recarga.';
