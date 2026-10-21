@@ -2,7 +2,8 @@
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Explorador de tarjetas cubanas</title>
 <style>
-@font-face{font-family:'ClasicaScript';src:url(assets/clasica-font.woff2) format('woff2');font-display:swap}</style>
+@font-face{font-family:'ClasicaScript';src:url(assets/clasica-font.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'BandecFont';src:url('assets/bandec-font.woff2') format('woff2');font-display:swap}</style>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=Geist+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--a1:#0071e3;--a2:#42a5f5;--ink:#f5f5f7;--mut:#86868b;--line:rgba(255,255,255,.08);--bg:#000000;--ease:cubic-bezier(.28,.11,.32,1)}
@@ -20,6 +21,7 @@ h1{font-family:'Inter Tight','Inter',sans-serif;font-weight:600;font-size:32px;l
 .twrap{position:relative}
 .twrap::before{content:'';position:absolute;inset:0;transform:translateY(-11px) scale(.965);background:#26262a;border-radius:26px;box-shadow:inset 0 1px 0 rgba(255,255,255,.09)}
 .tcard{position:relative;z-index:1;border-radius:26px;padding:22px 24px 18px;min-height:210px;color:#fff;background:linear-gradient(125deg,var(--a1),var(--a2) 85%);box-shadow:0 24px 48px -16px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.3);overflow:hidden;transition:background .6s var(--ease);display:flex;flex-direction:column}
+.tcard::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");mix-blend-mode:overlay;opacity:.34;pointer-events:none;z-index:1}
 .tcard::after{content:'';position:absolute;inset:0;background:radial-gradient(100% 130% at 90% -20%,rgba(255,255,255,.3),transparent 55%);pointer-events:none;z-index:3}
 .tcard>*{position:relative;z-index:2}
 .trow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
@@ -41,12 +43,13 @@ h1{font-family:'Inter Tight','Inter',sans-serif;font-weight:600;font-size:32px;l
 /* BANDEC */
 .tcard[data-card="bandec"]{background:linear-gradient(150deg,#c01430 0%,#8f0f1c 58%,#700a13 100%);padding-left:52px}
 .tcard[data-card="bandec"] .brand-bandec{display:flex}
+.brand-bandec .wm{font-family:'BandecFont',sans-serif;font-weight:700;font-size:27px;letter-spacing:.01em;-webkit-text-stroke:.06em currentColor}
 .tcard[data-card="bandec"] .deco-edge{display:block;left:0;top:0;bottom:0;width:34px;border-right:1px solid rgba(255,255,255,.18)}
 .deco-edge span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(180deg);writing-mode:vertical-rl;font-size:8px;letter-spacing:.3em;font-weight:600;opacity:.75;white-space:nowrap}
 /* BPA */
 .tcard[data-card="bpa"]{background:linear-gradient(160deg,#ffffff,#f2f4ef);color:#14231f;box-shadow:0 24px 48px -16px rgba(0,60,50,.28),inset 0 0 0 1px rgba(0,0,0,.05)}
 .tcard[data-card="bpa"] .brand-bpa{display:flex}
-.tcard[data-card="bpa"] .deco-swoosh{display:block;right:0;top:0;width:62%;height:64px;opacity:.9}
+.tcard[data-card="bpa"] .deco-swoosh{display:none;right:0;top:0;width:62%;height:64px;opacity:.9}
 .tcard[data-card="bpa"] .tnumwrap{border:2px solid #0b5563;border-radius:13px;padding:11px 14px 11px 30px;background:rgba(255,255,255,.75);position:relative}
 .tcard[data-card="bpa"] .tnumwrap::before{content:'';position:absolute;left:9px;top:50%;transform:translateY(-50%);border-left:11px solid #f5b90d;border-top:7px solid transparent;border-bottom:7px solid transparent}
 .tcard[data-card="bpa"] .tnum{color:#14231f;font-size:clamp(18px,5.2vw,24px)}
@@ -54,9 +57,9 @@ h1{font-family:'Inter Tight','Inter',sans-serif;font-weight:600;font-size:32px;l
 .tcard[data-card="bpa"] .pill.solid{background:#00594f;color:#fff}
 /* METROPOLITANO */
 .tcard[data-card="metropolitano"]{background:linear-gradient(170deg,#f4f5f2,#e9ebe7);color:#1d1d1f;padding-left:104px;box-shadow:0 24px 48px -16px rgba(70,110,20,.3),inset 0 0 0 1px rgba(0,0,0,.05)}
-.tcard[data-card="metropolitano"] .deco-lime{display:block;left:0;top:0;bottom:0;width:78px;background:linear-gradient(180deg,#b9dc4e,#9cc82f)}
+.tcard[data-card="metropolitano"] .deco-lime{display:flex;flex-direction:column;align-items:center;left:0;top:0;bottom:0;width:78px;background:linear-gradient(180deg,#b9dc4e,#9cc82f)}
 .deco-lime .bm{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-weight:700;font-size:31px;color:#111;letter-spacing:-.06em}
-.deco-lime .vert{position:absolute;top:16px;left:50%;transform:translateX(-50%);writing-mode:vertical-rl;font-weight:700;font-size:13.5px;color:#111;letter-spacing:.02em}
+.deco-lime .vert{writing-mode:vertical-rl;font-weight:700;font-size:11.5px;color:#111;letter-spacing:0;flex:1;min-height:0;overflow:hidden;display:flex;align-items:center;padding-top:14px}
 .tcard[data-card="metropolitano"] .tnum{color:#1d1d1f}
 .tcard[data-card="metropolitano"] .pill{background:rgba(0,0,0,.06);color:#1d1d1f}
 .tcard[data-card="metropolitano"] .pill.solid{background:#1d1d1f;color:#fff}
@@ -70,7 +73,7 @@ h1{font-family:'Inter Tight','Inter',sans-serif;font-weight:600;font-size:32px;l
 /* BICSA */
 .tcard[data-card="bicsa"] .brand-bicsa{display:flex}
 .tcard[data-card="tropical"]{background:#8fd0ea url("assets/tropical-fondo.jpg") center/cover no-repeat;color:#0b2b3a}
-.tcard[data-card="tropical"] .brand-tropical{display:flex}
+.tcard[data-card="tropical"] .brand-bandec{display:flex}
 .tcard[data-card="tropical"] .deco-palm{display:none;right:-6px;bottom:0;width:150px;height:170px;opacity:.92}
 .tcard[data-card="tropical"] .tnum{color:#101418;text-shadow:none;text-align:left}
 .tcard[data-card="tropical"] .tmeta .pill{background:rgba(255,255,255,.55);color:#0b2b3a}
@@ -85,6 +88,7 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 .anat{display:flex;gap:7px;margin-top:17px}
 .seg{flex:1;text-align:center;padding:9px 1px;border-radius:12px;background:#17171a;border:1px solid transparent;min-width:0;transition:all .4s var(--ease)}
 .seg b{display:block;font-size:12.5px;font-family:'SF Mono',ui-monospace,'Geist Mono',monospace;white-space:nowrap;overflow:hidden;color:var(--ink)}
+.seg.long b{font-size:10.5px;letter-spacing:-.03em}
 .seg span{font-size:8.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-weight:600;white-space:nowrap}
 .seg.on{background:#232327;border-color:#2e2e33;box-shadow:0 2px 10px rgba(0,0,0,.45)}
 .rows{margin-top:8px}
@@ -135,12 +139,12 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
   <div class="deco deco-ribbons"><svg viewBox="0 0 120 200" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true"><polygon points="0,0 46,0 20,200 0,200" fill="#0e4d8f"/><polygon points="30,0 62,0 96,200 58,200" fill="#12a5b8" opacity=".85"/><polygon points="52,0 70,0 128,200 96,200" fill="#0a3566"/></svg></div>
   <div class="deco deco-swoosh"><svg viewBox="0 0 300 120" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true"><path d="M300 8 C 190 26, 120 44, 0 108" stroke="#0b5563" stroke-width="7" fill="none" opacity=".8"/><path d="M300 30 C 200 48, 130 66, 8 122" stroke="#7fb3b0" stroke-width="5" fill="none" opacity=".7"/><path d="M300 52 C 215 68, 150 84, 30 128" stroke="#0b5563" stroke-width="3.5" fill="none" opacity=".45"/></svg></div>
   <div class="deco deco-palm"><svg viewBox="0 0 100 120" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><g fill="#14663f"><path d="M52 118 C 50 84, 48 58, 40 34 L 47 32 C 55 58, 57 86, 59 118 Z"/><path d="M44 32 C 30 18, 14 14, 2 20 C 14 24, 26 30, 40 38 Z"/><path d="M45 30 C 38 12, 26 2, 12 0 C 22 10, 32 20, 41 34 Z"/><path d="M47 29 C 50 10, 60 0, 74 0 C 64 10, 56 20, 50 33 Z"/><path d="M48 31 C 62 18, 78 14, 92 20 C 79 24, 64 31, 51 38 Z"/><path d="M47 34 C 64 30, 82 34, 94 46 C 80 42, 63 40, 50 40 Z"/></g></svg></div>
-  <div class="deco deco-lime"><span class="vert">Banco Metropolitano S.A.</span><img src="assets/metropolitano-isotipo.jpg" alt="Banco Metropolitano" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;object-fit:cover"></div>
+  <div class="deco deco-lime"><span class="vert">Banco Metropolitano</span><img src="assets/metropolitano-isotipo.png" alt="Banco Metropolitano" style="width:52px;height:auto;flex-shrink:0;margin:8px 0 12px"></div>
   <div class="trow">
     <div>
       <div class="brand brand-default"><div><div class="wm" id="tbank">Tarjeta cubana</div><div class="tnet" id="tnet">Sin identificar</div></div></div>
       <div class="brand brand-bandec"><img src="assets/bandec-isotipo.png" alt="BANDEC" style="height:42px;width:auto"><div><div class="wm">bandec</div><div class="micro">Banco de crédito<br>y comercio</div></div></div>
-      <div class="brand brand-bpa"><img src="assets/bpa-logo.jpg" alt="BPA" style="height:47px;width:auto;mix-blend-mode:multiply"></div>
+      <div class="brand brand-bpa"><img src="assets/bpa-isotipo.png" alt="BPA" style="height:29px;width:auto"></div>
       <div class="brand brand-clasica"><div><div class="wm" style="font-size:17px;letter-spacing:.22em">FINCIMEX</div><div class="micro">Financiera CIMEX S.A.</div></div></div>
       <div class="brand brand-tropical"><img src="assets/bandec-isotipo.png" alt="BANDEC" style="height:44px;width:auto"><div><div class="wm" style="color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.3)">bandec</div><div class="micro" style="color:#fff;opacity:.9">Banco de crédito y comercio</div></div></div>
       <div class="brand brand-bicsa"><div><div class="wm">BICSA</div><div class="micro">Banco Internacional<br>de Comercio S.A.</div></div></div>
@@ -171,7 +175,7 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 <p>Los diseños reproducen las tarjetas originales de cada banco con fines de identificación, sin nombre del titular, fecha de vencimiento ni códigos de seguridad. Los logos e isotipos pertenecen a cada banco.</p>
 </div>
 </div>
-<p class="copy">© Ray · v1.0.0 · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a> · Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener"><img src="assets/isotipo-ray.png" alt="Ray"></a></p>
+<p class="copy">© Ray · v1.3.0 · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a> · Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener"><img src="assets/isotipo-ray.png" alt="Ray"></a></p>
 </footer>
 </div>
 <script>
@@ -218,7 +222,7 @@ function render(){
   const tl=$('#tluhn');
   if(a.luhn!==undefined){tl.style.display='';tl.textContent=a.luhn?'Luhn válido':'Luhn no válido'}else tl.style.display='none';
   const parts=[[a.n.slice(0,2),'red'],[a.n.slice(2,4),'producto'],[a.n.slice(4,8),'emisor'],[a.n.slice(8,15),'cuenta'],[a.n.slice(15,16),'control']];
-  $('#anat').innerHTML=parts.map(([t,l])=>`<div class="seg ${t?'on':''}"><b>${t||'····'}</b><span>${l}</span></div>`).join('');
+  $('#anat').innerHTML=parts.map(([t,l],ix)=>`<div class="seg ${t?'on':''}${ix===3?' long':''}"><b>${t||'····'}</b><span>${l}</span></div>`).join('');
   const rows=[];
   if(a.network)rows.push(['net','Red',a.network]);
   if(a.product)rows.push(['prod','Producto',a.product]);
