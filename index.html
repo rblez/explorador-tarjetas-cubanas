@@ -100,6 +100,13 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 .dot{width:9px;height:9px;border-radius:50%}
 @media (max-width:420px){.wrap{padding:32px 16px 52px}h1{font-size:29px}.tcard{padding:19px 20px 16px;min-height:204px}.tcard[data-card="bandec"]{padding-left:47px}.tcard[data-card="metropolitano"]{padding-left:94px}.tcard[data-card="clasica"] .tnumwrap{margin:auto -20px 10px;padding:8px 20px}.panel{padding:21px 16px}.brand .wm{font-size:20px}}
 .powered{margin:32px 0 6px;font-size:13px;color:var(--mut)}
+.warn{margin-top:16px;display:flex;gap:12px;background:#171106;border:1px solid rgba(245,197,24,.38);border-radius:14px;padding:14px 15px}
+.warn[hidden]{display:none}
+.warn-ic{flex-shrink:0;margin-top:1px}
+.warn-tx b{font-size:14px;color:#ffd60a;display:block}
+.warn-tx p{margin:5px 0 11px;font-size:13px;line-height:1.55;color:#ddd09c}
+.warnbtn{display:inline-block;background:#f5c518;color:#1a1405;font-weight:700;font-size:13px;padding:8px 13px;border-radius:999px;text-decoration:none}
+.warnpriv{display:block;margin-top:8px;font-size:11.5px;color:#96884f}
 .sitefoot{margin-top:38px;border-top:1px solid var(--line);padding-top:24px}
 .sitefoot .powered{margin:0 0 4px;font-size:13.5px}
 .sitefoot .powered img{width:34px;height:34px;border-radius:9px;vertical-align:-11px;margin-left:3px}
@@ -112,6 +119,7 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 .dcol-body a{color:var(--ink);text-decoration:none}
 .copy{margin:18px 0 0;color:#6e6e73;font-size:12.5px}
 .copy a{color:#a1a1a6;text-decoration:none;font-weight:600}
+.copy img{width:20px;height:20px;border-radius:5px;vertical-align:-5px;margin-left:2px}
 
 .powered img{width:20px;height:20px;border-radius:6px;vertical-align:-5px;margin-left:2px}
 .powered a{color:var(--ink);font-weight:600;text-decoration:none}
@@ -151,10 +159,10 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 <div class="anat" id="anat"></div>
 <div class="rows" id="rows"><div class="state" id="state">Cargando el catálogo desde jsDelivr…</div></div>
 <div class="notes" id="notes" style="display:none"></div>
+<div class="warn" id="warn" hidden><div class="warn-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 4L21.5 20H2.5L12 4Z" stroke="#f5c518" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v4.4" stroke="#f5c518" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.15" fill="#f5c518"/></svg></div><div class="warn-tx"><b id="warntitle"></b><p id="warntext"></p><a class="warnbtn" id="warnlink" href="#" target="_blank" rel="noopener">Reportarla en QvaPay</a><span class="warnpriv">Solo se comparten los 8 primeros dígitos de tu tarjeta.</span></div></div>
 <div class="ex" id="ex"></div>
 </div>
 <footer class="sitefoot">
-<div class="powered">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener"><img src="assets/isotipo-ray.png" alt="Ray"></a></div>
 <div class="dcol">
 <button class="dcol-head" id="dcolhead" type="button" aria-expanded="false"><span>Datos</span><svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <div class="dcol-body" id="dcolbody" hidden>
@@ -163,7 +171,7 @@ input:focus{background:#1e1e21;border-color:var(--a1);box-shadow:0 0 0 4px color
 <p>Los diseños reproducen las tarjetas originales de cada banco con fines de identificación, sin nombre del titular, fecha de vencimiento ni códigos de seguridad. Los logos e isotipos pertenecen a cada banco.</p>
 </div>
 </div>
-<p class="copy">© Ray · v1.0.0 · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a></p>
+<p class="copy">© Ray · v1.0.0 · <a href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a> · Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener"><img src="assets/isotipo-ray.png" alt="Ray"></a></p>
 </footer>
 </div>
 <script>
@@ -224,6 +232,28 @@ function render(){
   $('#rows').innerHTML=rows.map(([i,k,v])=>`<div class="row"><span class="k"><span class="tile" style="background:${TILES[i]}">${IC[i]}</span>${k}</span><b>${v}</b></div>`).join('');
   const nt=$('#notes');
   if(a.entry&&a.entry.notes){nt.style.display='block';nt.textContent=a.entry.notes}else nt.style.display='none';
+  const wn=$('#warn');let wm=null,ci=null;
+  if(a.n&&a.n.length>=8)ci=(PF.issuers||[]).find(x=>x.code&&x.code.length===4&&x.code===a.n.slice(4,8))||null;
+  if(a.entry&&ci&&!(a.entry.issuers||[]).includes(ci.id))wm='mismatch';
+  else if(!a.entry&&a.n&&a.n.length===16)wm='unknown';
+  if(wm){
+    const p4=a.n.slice(0,4),f8=a.n.slice(0,4)+' '+a.n.slice(4,8);
+    let title,body;
+    if(wm==='mismatch'){
+      const listed=(a.entry.issuers||[]).map(id=>iss[id]?iss[id].name:id).join(' y ');
+      $('#warntitle').textContent='¿Tu tarjeta no es de este banco?';
+      $('#warntext').textContent='El catálogo lista el prefijo '+p4+' solo con '+listed+', pero el código emisor '+ci.code+' (dígitos 5 al 8) es de '+ci.name+'. Puede ser un dato incompleto del catálogo.';
+      title='[dato] Prefijo '+p4+': falta '+ci.name+' (código emisor '+ci.code+')';
+      body='## Qué pasa\n\nUna tarjeta con los dígitos **'+f8+'** se identifica en el explorador como '+listed+', porque el prefijo `'+p4+'` solo lista ese emisor en el catálogo. Pero el código emisor (dígitos 5–8) es **'+ci.code+'**, que corresponde a **'+ci.name+'**: la tarjeta es de ese banco.\n\n## Dato propuesto\n\nAñadir `'+ci.id+'` a los emisores del prefijo `'+p4+'` ('+a.entry.product+', '+a.entry.currency+').\n\n## Fuente\n\nTarjeta real del titular que lo reporta. Se comparten solo los 8 primeros dígitos; el resto del número nunca sale del navegador.\n\nReportado desde el Explorador de tarjetas cubanas: https://rblez.github.io/explorador-tarjetas-cubanas/';
+    }else{
+      $('#warntitle').textContent='Este prefijo no está en el catálogo';
+      $('#warntext').textContent='Si tu tarjeta es cubana y real, falta el dato en el catálogo. Repórtala para añadirla.';
+      title='[dato] Prefijo '+p4+' no está en el catálogo';
+      body='## Qué pasa\n\nUna tarjeta con los dígitos **'+f8+'** no se identifica en el explorador: el prefijo `'+p4+'` no aparece en `prefixes.json`.\n\n## Fuente\n\nTarjeta real del titular que lo reporta. Se comparten solo los 8 primeros dígitos; el resto del número nunca sale del navegador.\n\nReportado desde el Explorador de tarjetas cubanas: https://rblez.github.io/explorador-tarjetas-cubanas/';
+    }
+    $('#warnlink').href='https://github.com/qvapay/cuban_cards_prefixes/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body);
+    wn.hidden=false;
+  }else wn.hidden=true;
 }
 $('#num').addEventListener('input',e=>{e.target.value=fmt(e.target.value.replace(/\D/g,'').slice(0,16));render()});
 function exampleFor(e){let base=(e.prefix+((e.issuers&&iss[e.issuers[0]]&&iss[e.issuers[0]].code)||'0000')).padEnd(15,'0').slice(0,15);for(let d=0;d<=9;d++){if(luhn(base+d))return base+d}return base+'0'}
