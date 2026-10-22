@@ -163,6 +163,23 @@ html[data-theme="light"] .copy a{color:#515154}
 .poweredby img{height:16px;width:auto;filter:invert(1)}
 html[data-theme="light"] .poweredby{color:#6e6e73}
 html[data-theme="light"] .poweredby img{filter:none}
+.tcard[data-card="ais"]{background:linear-gradient(180deg,#fdfefe 0 34%,#2563c4 34%,#17457f 100%)}
+.tcard[data-card="ais-usd"]{background:linear-gradient(180deg,#eef6e4 0 34%,#dcebcd 34%,#bfdca6 100%);color:#152410}
+.tcard[data-card="ais"] .brand-ais,.tcard[data-card="ais-usd"] .brand-ais{display:flex}
+.brand-ais{align-items:center;gap:12px}
+.aisoval{width:60px;height:auto;flex-shrink:0}
+.aiswm{font-size:13px;font-weight:800;line-height:1.25;color:#14213d}
+.deco-aisstripe{display:none;top:34%;bottom:auto;height:16px;align-items:center;overflow:hidden}
+.deco-aisstripe span{font-size:8px;letter-spacing:.16em;font-weight:700;white-space:nowrap;padding-left:14px}
+.tcard[data-card="ais"] .deco-aisstripe{display:flex;background:#cfe1f7;color:#17457e}
+.tcard[data-card="ais-usd"] .deco-aisstripe{display:flex;background:#14532d;color:#ffffff}
+.deco-aiswaves{display:none;top:auto;bottom:0;height:30%}
+.tcard[data-card="ais-usd"] .deco-aiswaves{display:block}
+.tcard[data-card="bicsa"]{background:linear-gradient(135deg,#eed48c 0%,#d9b64f 52%,#bd9435 100%);color:#2e2100}
+.bicsa-mark{width:50px;height:auto;flex-shrink:0}
+.aisovalwrap{position:relative;flex-shrink:0;width:60px}
+.aisoval{width:60px;display:block}
+.ais-letters{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);width:41px}
 @media (max-width:420px){.wrap{padding:32px 16px 52px}h1{font-size:29px}.tcard{padding:19px 20px 16px;min-height:204px}.tcard[data-card="metropolitano"]{padding-left:94px}.tcard[data-card="clasica"] .tnumwrap{margin:auto -20px 10px;padding:8px 20px}.panel{padding:21px 16px}.brand .wm{font-size:20px}}
 .powered{margin:32px 0 6px;font-size:13px;color:var(--mut)}
 .warn{margin-top:16px;display:flex;gap:12px;background:#171106;border:1px solid rgba(245,197,24,.38);border-radius:14px;padding:14px 15px}
@@ -196,6 +213,8 @@ html[data-theme="light"] .poweredby img{filter:none}
 <h1>Explorador de tarjetas cubanas<span class="badge" id="ver">cargando…</span></h1>
 <p class="sub">Pega un número y el catálogo lo identifica al instante: red, producto, moneda y banco. La tarjeta se dibuja como la original de cada banco, sin datos personales.</p>
 <div class="twrap"><div class="tcard" id="tcard" data-card="default">
+  <div class="deco deco-aisstripe"><span>american international service s.a.&nbsp;&nbsp;&nbsp;&nbsp;american international service s.a.&nbsp;&nbsp;&nbsp;&nbsp;american international service s.a.</span></div>
+  <div class="deco deco-aiswaves"><svg viewBox="0 0 300 60" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true"><g fill="none" stroke="#17572e" stroke-width="1.1" opacity=".45"><path d="M0 38 C 60 18, 120 52, 180 30 S 280 22, 300 30"/><path d="M0 44 C 60 24, 120 58, 180 36 S 280 28, 300 36"/><path d="M0 50 C 60 30, 120 64, 180 42 S 280 34, 300 42"/><path d="M0 32 C 60 12, 120 46, 180 24 S 280 16, 300 24"/></g></svg></div>
   <div class="deco deco-ribbons"><svg viewBox="0 0 120 200" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true"><polygon points="0,0 46,0 20,200 0,200" fill="#0e4d8f"/><polygon points="30,0 62,0 96,200 58,200" fill="#12a5b8" opacity=".85"/><polygon points="52,0 70,0 128,200 96,200" fill="#0a3566"/></svg></div>
   <div class="deco deco-swoosh"><svg viewBox="0 0 300 120" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true"><path d="M300 8 C 190 26, 120 44, 0 108" stroke="#0b5563" stroke-width="7" fill="none" opacity=".8"/><path d="M300 30 C 200 48, 130 66, 8 122" stroke="#7fb3b0" stroke-width="5" fill="none" opacity=".7"/><path d="M300 52 C 215 68, 150 84, 30 128" stroke="#0b5563" stroke-width="3.5" fill="none" opacity=".45"/></svg></div>
   <div class="deco deco-palm"><svg viewBox="0 0 100 120" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><g fill="#14663f"><path d="M52 118 C 50 84, 48 58, 40 34 L 47 32 C 55 58, 57 86, 59 118 Z"/><path d="M44 32 C 30 18, 14 14, 2 20 C 14 24, 26 30, 40 38 Z"/><path d="M45 30 C 38 12, 26 2, 12 0 C 22 10, 32 20, 41 34 Z"/><path d="M47 29 C 50 10, 60 0, 74 0 C 64 10, 56 20, 50 33 Z"/><path d="M48 31 C 62 18, 78 14, 92 20 C 79 24, 64 31, 51 38 Z"/><path d="M47 34 C 64 30, 82 34, 94 46 C 80 42, 63 40, 50 40 Z"/></g></svg></div>
@@ -206,8 +225,9 @@ html[data-theme="light"] .poweredby img{filter:none}
       <div class="brand brand-bandec"><img src="assets/bandec-isotipo.png" alt="BANDEC" style="height:42px;width:auto"><div><div class="wm">bandec</div><div class="micro">Banco de crédito<br>y comercio</div></div></div>
       <div class="brand brand-bpa"><img src="assets/bpa-isotipo.png" alt="BPA" style="height:29px;width:auto"></div>
       <div class="brand brand-clasica"><div><div class="wm" style="font-size:17px;letter-spacing:.22em">FINCIMEX</div><div class="micro">Financiera CIMEX S.A.</div></div></div>
+      <div class="brand brand-ais"><span class="aisovalwrap"><svg class="aisoval" viewBox="0 0 110 66" aria-hidden="true"><ellipse cx="55" cy="33" rx="54" ry="32" fill="#1d2a6e"/></svg><img class="ais-letters" src="assets/ais-letters.png" alt="ais"></span><div class="aiswm">american<br>international<br>service s.a.</div></div>
       <div class="brand brand-tropical"><img src="assets/bandec-isotipo.png" alt="BANDEC" style="height:44px;width:auto"><div><div class="wm" style="color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.3)">bandec</div><div class="micro" style="color:#fff;opacity:.9">Banco de crédito y comercio</div></div></div>
-      <div class="brand brand-bicsa"><div><div class="wm">BICSA</div><div class="micro">Banco Internacional<br>de Comercio S.A.</div></div></div>
+      <div class="brand brand-bicsa"><img class="bicsa-mark" src="assets/bicsa-mark.png" alt="BICSA"><div><div class="wm">BICSA</div><div class="micro">Banco Internacional<br>de Comercio S.A.</div></div></div>
     </div>
     <div id="netlogo"><svg width="38" height="28" viewBox="0 0 34 26" fill="none" aria-hidden="true"><rect x="1" y="1" width="32" height="24" rx="5" fill="rgba(255,255,255,.25)"/><path d="M1 9h12M1 17h12M33 9H21M33 17H21M13 1v24M21 1v24" stroke="rgba(255,255,255,.7)" stroke-width="1.4"/></svg></div>
   </div>
@@ -236,7 +256,7 @@ html[data-theme="light"] .poweredby img{filter:none}
 <p>Los diseños reproducen las tarjetas originales de cada banco con fines de identificación, sin nombre del titular, fecha de vencimiento ni códigos de seguridad. Los logos e isotipos pertenecen a cada banco.</p>
 </div>
 </div>
-<p class="poweredby">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener" aria-label="Ray - rblez.com"><img class="iso-theme" src="assets/isotipo-ray-claro.svg" alt="Ray"></a><span aria-hidden="true">·</span><span>v1.3.6</span><span aria-hidden="true">·</span><a class="pbrepo" href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a></p>
+<p class="poweredby">Powered by <a href="https://www.rblez.com" target="_blank" rel="noopener" aria-label="Ray - rblez.com"><img class="iso-theme" src="assets/isotipo-ray-claro.svg" alt="Ray"></a><span aria-hidden="true">·</span><span>v1.3.7</span><span aria-hidden="true">·</span><a class="pbrepo" href="https://github.com/rblez/explorador-tarjetas-cubanas" target="_blank" rel="noopener">Código abierto (MIT)</a></p>
 </footer>
 </div>
 <script>
@@ -248,11 +268,11 @@ const CHIP="<svg width=\"38\" height=\"28\" viewBox=\"0 0 34 26\" fill=\"none\" 
 const TILES={net:'#0071e3',prod:'#8944ab',cur:'#1a7f37',bank:'#54608a',dig:'#8e8e93',shield:'#1a7f37',check:'#54608a'};
 let PF=null, VA=null, iss={};
 const $=s=>document.querySelector(s);
-const COLORS={'Banco de Crédito y Comercio':['#c01430','#8f0f1c'],'Banco Popular de Ahorro':['#00594f','#0b5563'],'Banco Metropolitano':['#86b52a','#6f9c1f'],'Financiera CIMEX S.A.':['#c99a2e','#8a6414'],'Banco Internacional de Comercio S.A.':['#0891b2','#155e75']};
+const COLORS={'Banco de Crédito y Comercio':['#c01430','#8f0f1c'],'Banco Popular de Ahorro':['#00594f','#0b5563'],'Banco Metropolitano':['#86b52a','#6f9c1f'],'Financiera CIMEX S.A.':['#c99a2e','#8a6414'],'American International Services':['#2563c4','#17457e'],'Banco Internacional de Comercio S.A.':['#0891b2','#155e75']};
 const PCOLORS={'Clásica':['#c99a2e','#8a6414']};
 const DEF=['#0071e3','#42a5f5'];
-const THEMES={'Banco de Crédito y Comercio':'bandec','Banco Popular de Ahorro':'bpa','Banco Metropolitano':'metropolitano','Financiera CIMEX S.A.':'clasica','Banco Internacional de Comercio S.A.':'bicsa'};
-const SHORT={BANDEC:'BANDEC',BPA:'BPA',METROPOLITANO:'Banco Metropolitano',FINCIMEX:'FINCIMEX',BICSA:'BICSA'};
+const THEMES={'Banco de Crédito y Comercio':'bandec','Banco Popular de Ahorro':'bpa','Banco Metropolitano':'metropolitano','Financiera CIMEX S.A.':'clasica','American International Services':'ais','Banco Internacional de Comercio S.A.':'bicsa'};
+const SHORT={BANDEC:'BANDEC',BPA:'BPA',METROPOLITANO:'Banco Metropolitano',FINCIMEX:'FINCIMEX',BICSA:'BICSA',AIS:'AIS'};
 function luhn(n){let s=0,a=false;for(let i=n.length-1;i>=0;i--){let d=+n[i];if(a){d*=2;if(d>9)d-=9}s+=d;a=!a}return n.length>0&&s%10===0}
 function fmt(n){return n.replace(/(\d{4})(?=\d)/g,'$1 ')}
 function analyze(raw){
@@ -272,6 +292,7 @@ function render(){
   let key='default';
   if(a.banks&&a.banks.length&&THEMES[a.banks[0].name])key=THEMES[a.banks[0].name];
   if(a.product==='Clásica')key='clasica';
+  if(key==='ais'&&a.currency==='USD')key='ais-usd';
   if(a.entry&&a.entry.aliases&&a.entry.aliases.includes('Tropical'))key='tropical';
   $('#tcard').dataset.card=key;
   let c=(a.banks&&a.banks.length&&COLORS[a.banks[0].name])||(a.product&&PCOLORS[a.product])||DEF;
